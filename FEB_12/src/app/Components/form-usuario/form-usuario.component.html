@@ -1,0 +1,99 @@
+<div class="form-container">
+  <h1>Formulário de Cadastro</h1>
+  <form id="form" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="input-group">
+      <label for="user">
+        Nome de usuário
+        <input id="user" formControlName="user" type="text" />
+        <span *ngIf="!form.get('user')?.valid && form.get('user')?.touched"
+          >Usuário não pode ter espaços!</span
+        >
+      </label>
+      <label for="password">
+        Senha
+        <input id="password" formControlName="password" type="password" />
+        <span
+          *ngIf="!form.get('password')?.valid && form.get('password')?.touched"
+          >Senha precisa ter no mínimo 4 caracteres, pelo menos 1 letra
+          maiúscula e 1 simbolo!</span
+        >
+      </label>
+    </div>
+    <div class="input-group">
+      <label for="email">
+        E-mail
+        <input id="email" formControlName="email" type="email" />
+        <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+          >Insira um e-mail válido!</span
+        >
+      </label>
+      <label for="name">
+        Nome Completo
+        <input id="name" formControlName="name" type="text" />
+        <span *ngIf="!form.get('name')?.valid && form.get('name')?.touched"
+          >Precisa ser um nome completo!</span
+        >
+      </label>
+    </div>
+    <div class="input-group">
+      <label for="phone">
+        Telefone
+        <input
+          id="phone"
+          formControlName="phone"
+          type="text"
+          mask="(00) 00000-0000"
+        />
+        <span *ngIf="!form.get('phone')?.valid && form.get('phone')?.touched"
+          >Digite um telefone válido!</span
+        >
+      </label>
+      <label for="address">
+        Endereço (CEP)
+        <input
+          id="address"
+          formControlName="address"
+          type="text"
+          mask="00000-000"
+        />
+        <span
+          *ngIf="!form.get('address')?.valid && form.get('address')?.touched"
+          >Digite um CEP válido!</span
+        >
+      </label>
+    </div>
+    <div class="input-group">
+      <label for="birthday">
+        Data de nascimento
+        <input id="birthday" formControlName="birthday" type="date" />
+        <span
+          *ngIf="!form.get('birthday')?.valid && form.get('birthday')?.touched"
+          >Apenas maiores de 18 anos!</span
+        >
+      </label>
+      <label for="gender">
+        Gênero
+        <select formControlName="gender" id="gender">
+          <option value="masculino">masculino</option>
+          <option value="feminino">feminino</option>
+        </select>
+      </label>
+    </div>
+    <label for="occupation">
+      Profissão
+      <select formControlName="occupation" id="occupation">
+        <option value="engenheiro">Engenheiro</option>
+        <option value="médico">Médico</option>
+        <option value="advogado">Advogado</option>
+        <option value="professor">Professor</option>
+        <option value="veterinario">Veterinario</option>
+        <option value="programador">Programador</option>
+        <option value="enfermeiro">Enfermeiro</option>
+        <option value="contador">Contador</option>
+        <option value="arquiteto">Arquiteto</option>
+        <option value="dentista">Dentista</option>
+      </select>
+    </label>
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>
